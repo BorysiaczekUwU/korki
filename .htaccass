@@ -1,0 +1,13 @@
+# Ukrywanie rozszerzenia .php
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+# Zapobieganie dostępowi do wrażliwych plików
+<Files "db.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Opcje bezpieczeństwa
+Options -Indexes
